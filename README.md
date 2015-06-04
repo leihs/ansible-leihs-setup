@@ -20,6 +20,48 @@ If all goes well, you will end up with a working leihs instance that is seeded w
 
 Once you're happy testing leihs on those hosts, proceed to create a production inventory file and add your production hosts there.
 
-## Example entry
+## Example entry in site.yml
 
-## Variables
+This should get you started with a test instance:
+
+
+```yaml
+---
+- hosts: leihs.local
+  roles:
+    - { role: leihs-instance,
+        server_name: "leihs.local",
+        deploy_to: "/home/leihs/test/current",
+        version: "master",
+        document_root: "/home/leihs/test/current/public",
+        passenger_ruby: "/home/leihs/.rbenv/versions/2.1.5/bin/ruby",
+        user: leihs,
+        mysql_user: leihs,
+        mysql_password: "hNM8f7ej2sjjnlk02hd",
+        mysql_database: "leihs_prod",
+        secret_token: fdb800e432b92b5421209ce179506b563e176d5ad6b309a3dd6c882c0563f60b206a4eeab26ada269ad3b7c5ca4d357611d387fe13a8572964123ea16cfe9d0a,
+        rotate_logs: "/home/leihs/test/shared/log/*.log",
+        test_instance: True
+        }
+```
+
+You can of course set some of these variables as host_vars as well, such as secret_token.
+
+
+## Only deploying an instance, not setting up a server
+
+The leihs-instance role used in this playbook can be used in deploy mode if all you want to do is deploy any version of leihs to an already configured server. Keep in mind that you will have to have run the role connecting as root before, so that the server is in the right state.
+
+The advantage here is that if you just want to deploy a new version of the application, you don't need root.
+
+This allows you to e.g. give your leihs developers key-based access to your server as the leihs user, while you give your sysadmins root access, and both use the same playbooks.
+
+To just use deploy mode, make sure you've set the role's `version` var to the version you want to deploy, then:
+
+    ansible-playbook site.yml -i hosts.production -u leihs --tags=deploy
+
+Substituting the user you've actually configured for that instance in place of `-u leihs`.
+
+## Variables explained
+
+The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/psy-q/ansible-leihs-instance) itself.
