@@ -64,4 +64,4 @@ Substituting the user you've actually configured for that instance in place of `
 
 ## Variables explained
 
-The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/psy-q/ansible-leihs-instance) itself.
+The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/psy-q/ansible-leihs-instance) itself. Most of the variables used in this role are simply passed on to that role.
