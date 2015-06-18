@@ -8,6 +8,8 @@
         document_root: "/home/leihs/test/current/public",
         passenger_ruby: "/home/leihs/.rbenv/versions/2.1.5/bin/ruby",
         user: leihs,
+        authorized_for_deployment:
+          ["files/ssh_keys/rca.pub"],
         mysql_user: leihs,
         mysql_password: "hNM8f7ej2sjjnlk02hd",
         mysql_database: "leihs_prod",
