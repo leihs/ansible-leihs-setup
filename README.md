@@ -63,6 +63,16 @@ To use deploy mode, make sure you've set the role's `version` var to the version
 
 Substituting the user you've actually configured for that instance in place of `-u leihs`.
 
+## One-time override of the version of leihs to deploy
+
+You can pick a version of leihs to deploy on a one-by-one basis, just for one single server and just for one single execution of ansible-playbook. This is useful if, for example, you have a test server that has a copy of your production data and leihs at e.g. version 3.28.1 and you want to try out 3.29.0 with the same data before you make the same migration in production.
+
+Since it might be cumbersome to already commit to that version by adding it to your site.yml file or to a host var, you can set the variable for one single execution, **but you must make absolutely sure that you also limit the host using the `-l` option**. Since the `version` var is global to all leihs instances when you declare it on the command-line, you would otherwise move *all* your hosts to that version, and that's exactly what you don't want.
+
+    ansible-playbook site.yml -i hosts.staging -l leihs.local -u root --extra-vars "version=3.29.0"
+
+I repeat, do not ever use the `version` option against your production hosts file. This example also demonstrates how smart the Ansible people are by suggesting to split your host inventories into production and staging to prevent nuclear catastrophes.
+
 ## Variables explained
 
 The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/psy-q/ansible-leihs-instance) itself. Most of the variables used in this role are simply passed on to that role.
