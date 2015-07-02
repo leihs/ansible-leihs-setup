@@ -1,6 +1,6 @@
 # ansible-leihs-setup
 
-An example of what an Ansible playbook for setting up [leihs](http://github.com/zhdk/leihs) servers and instances could look like.
+An Ansible playbook for setting up [leihs](http://github.com/zhdk/leihs) servers and instances could look like. It supports Debian GNU/Linux 8.1 (jessie).
 
 ## Very Quick Start
 
