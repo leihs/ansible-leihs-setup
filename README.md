@@ -33,7 +33,6 @@ This should get you started with a test instance:
     - { role: leihs-instance,
         server_name: "leihs.local",
         deploy_to: "/home/leihs/test/current",
-        shared_dir: "/home/leihs/test/shared",
         version: "master",
         document_root: "/home/leihs/test/current/public",
         passenger_ruby: "/home/leihs/.rbenv/versions/2.1.5/bin/ruby",
@@ -42,7 +41,6 @@ This should get you started with a test instance:
         mysql_password: "hNM8f7ej2sjjnlk02hd",
         mysql_database: "leihs_prod",
         secret_token: fdb800e432b92b5421209ce179506b563e176d5ad6b309a3dd6c882c0563f60b206a4eeab26ada269ad3b7c5ca4d357611d387fe13a8572964123ea16cfe9d0a,
-        rotate_logs: "/home/leihs/test/shared/log/*.log",
         test_instance: True
         }
 ```
