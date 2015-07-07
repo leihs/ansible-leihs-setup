@@ -33,6 +33,7 @@ This should get you started with a test instance:
     - { role: leihs-instance,
         server_name: "leihs.local",
         deploy_to: "/home/leihs/test/current",
+        shared_dir: "/home/leihs/test/shared",
         version: "master",
         document_root: "/home/leihs/test/current/public",
         passenger_ruby: "/home/leihs/.rbenv/versions/2.1.5/bin/ruby",
