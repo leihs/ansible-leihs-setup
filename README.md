@@ -31,18 +31,23 @@ This should get you started with a test instance:
 - hosts: leihs.local
   roles:
     - { role: leihs-instance,
-        server_name: "leihs.local",
         deploy_to: "/home/leihs/test/current",
         version: "master",
-        document_root: "/home/leihs/test/current/public",
-        passenger_ruby: "/home/leihs/.rbenv/versions/2.1.5/bin/ruby",
+        ruby_version: "2.1.5",
         user: leihs,
+        authorized_for_deployment:
+          ["files/ssh_keys/rca.pub",
+           "files/ssh_keys/fs.pub",
+           "files/ssh_keys/nimaai.pub"],
         mysql_user: leihs,
         mysql_password: "hNM8f7ej2sjjnlk02hd",
         mysql_database: "leihs_prod",
-        secret_token: fdb800e432b92b5421209ce179506b563e176d5ad6b309a3dd6c882c0563f60b206a4eeab26ada269ad3b7c5ca4d357611d387fe13a8572964123ea16cfe9d0a,
+        secret_token: abc123,
+        logrotate_filename: "leihs.local",
         test_instance: True
         }
+    - { role: phusion-passenger-vhost,
+        server_name: "leihs.local" }
 ```
 
 You can of course set some of these variables as host_vars as well, such as secret_token, to keep your site.yml a bit cleaner.
@@ -64,4 +69,6 @@ Substituting the user you've actually configured for that instance in place of `
 
 ## Variables explained
 
-The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/psy-q/ansible-leihs-instance) itself. Most of the variables used in this role are simply passed on to that role.
+The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/psy-q/ansible-leihs-instance) itself. Most of the variables used in this role are simply passed on to that role. Since phusion-passenger-vhost uses many of the same variable names and can get them from host vars, the only one you really have to set manually is the `server_name`. This is what gets set as `ServerName` in the Apache virtual host configuration.
+
+The leihs-instance role takes care of setting those variables. If you want to use phusion-passenger-vhost without leihs-instance, you would of course have to set them yourself.
