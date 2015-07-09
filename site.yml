@@ -2,7 +2,7 @@
 - hosts: leihs.local
   roles:
     - { role: leihs-instance,
-        deploy_to: "/home/leihs/test/current",
+        deploy_to: "/home/leihs/test",
         version: "master",
         ruby_version: "2.1.5",
         user: leihs,
@@ -24,7 +24,7 @@
 - hosts: leihs2.local
   roles:
     - { role: leihs-instance,
-        deploy_to: "/home/leihs2/test/current",
+        deploy_to: "/home/leihs2/test",
         version: "master",
         ruby_version: "2.1.5",
         user: leihs2,
@@ -45,7 +45,7 @@
 - hosts: demo.leihs.local
   roles:
     - { role: leihs-instance,
-        deploy_to: "/home/leihs/demo/current",
+        deploy_to: "/home/leihs/demo",
         version: "master",
         ruby_version: "2.1.5",
         user: leihs,
