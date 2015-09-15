@@ -13,7 +13,7 @@ In an ideal world, all you would then have to do is this:
  1. Add the DNS names of all the servers you want to install a leihs test instance on to the file `hosts.staging`.
  1. Choose a random MySQL root password and add it `host_vars`. You do that by creating a directory named like the host you're installing leihs on, and a YAML file that sets the `mysql_root_password` variable. See `host_vars/leihs.local/mysql_credentials` for an example.
  1. Copy the entry from site.yml so that it matches your new host and customize it to suit your needs. See below for the variables you can change.
- 1. Run `ansible-galaxy install leonidas.rbenv` as root.
+ 1. Run `ansible-galaxy install k0st1an.rbenv` as root.
  1. (Optional) Add the SSH public keys of all the users that you want to authorize to deploy the leihs instances to the directory `files/ssh_keys`.
  1. Run `ansible-playbook site.yml -i hosts.staging -u root` as whichever user can connect to your staging hosts as root.
 
