@@ -75,7 +75,8 @@
         mysql_password: "wVy.atzKfvpqEwVy.atzKfvpqE",
         mysql_database: "leihs3_prod",
         secret_token: f8ad02524dce6757df486f07c4f7923dda19692441bbc31dade36c82d475bdb6ed60064e14f3d85f3ad837a7c85c63082fcfe47cd501da92ca14a4167842ad97,
-        logrotate_filename: "leihs3.local"
+        logrotate_filename: "leihs3.local",
+        notification_recipients: "foo@bar.com,bar@example.com"
         }
     - { role: phusion-passenger-vhost,
         server_name: "leihs3.local" }
