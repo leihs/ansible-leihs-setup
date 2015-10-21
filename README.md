@@ -8,7 +8,7 @@ This assumes you have Ansible 1.9 or later and Ansible Galaxy installed on your 
 
 In an ideal world, all you would then have to do is this:
 
- 1. Clone this repository with the `--recursive` option so you get the submodules immediately: `git clone --recursive https://github.com/psy-q/ansible-leihs-setup.git`
+ 1. Clone this repository with the `--recursive` option so you get the submodules immediately: `git clone --recursive https://github.com/leihs/ansible-leihs-setup.git`
  1. Change to the directory that created.
  1. Add the DNS names of all the servers you want to install a leihs test instance on to the file `hosts.staging`.
  1. Choose a random MySQL root password and add it `host_vars`. You do that by creating a directory named like the host you're installing leihs on, and a YAML file that sets the `mysql_root_password` variable. See `host_vars/leihs.local/mysql_credentials` for an example.
@@ -69,6 +69,6 @@ Substituting the user you've actually configured for that instance in place of `
 
 ## Variables explained
 
-The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/psy-q/ansible-leihs-instance) itself. Most of the variables used in this role are simply passed on to that role. Since phusion-passenger-vhost uses many of the same variable names and can get them from host vars, the only one you really have to set manually is the `server_name`. This is what gets set as `ServerName` in the Apache virtual host configuration.
+The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/leihs/ansible-leihs-instance) itself. Most of the variables used in this role are simply passed on to that role. Since phusion-passenger-vhost uses many of the same variable names and can get them from host vars, the only one you really have to set manually is the `server_name`. This is what gets set as `ServerName` in the Apache virtual host configuration.
 
 The leihs-instance role takes care of setting those variables. If you want to use phusion-passenger-vhost without leihs-instance, you would of course have to set them yourself.
