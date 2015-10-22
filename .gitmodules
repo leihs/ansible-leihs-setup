@@ -1,12 +1,12 @@
 [submodule "roles/phusion-passenger"]
 	path = roles/phusion-passenger
-	url = https://github.com/psy-q/ansible-phusion-passenger.git
+	url = https://github.com/leihs/ansible-phusion-passenger.git
 [submodule "roles/phusion-passenger-vhost"]
 	path = roles/phusion-passenger-vhost
-	url = https://github.com/psy-q/ansible-phusion-passenger-vhost.git
+	url = https://github.com/leihs/ansible-phusion-passenger-vhost.git
 [submodule "roles/leihs-user"]
 	path = roles/leihs-user
-	url = https://github.com/psy-q/ansible-leihs-user.git
+	url = https://github.com/leihs/ansible-leihs-user.git
 [submodule "roles/leihs-instance"]
 	path = roles/leihs-instance
-	url = https://github.com/psy-q/ansible-leihs-instance.git
+	url = https://github.com/leihs/ansible-leihs-instance.git
