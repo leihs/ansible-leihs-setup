@@ -80,7 +80,8 @@
         }
     - { role: phusion-passenger-vhost,
         server_name: "leihs3.local" }
-# An example with LDAP configuration
+# An example with LDAP configuration. Don't forget to
+# enable the LDAP authentication controller on the Rails console, too!
 - hosts: leihs4.local
   roles:
     - { role: leihs-instance,
@@ -93,7 +94,15 @@
         mysql_user: leihs,
         mysql_password: "xZMkdbTSuvPRw",
         mysql_database: "leihs_ldap",
+        mysql_root_password: "",
         ldap_hostname: "ldap.example.org",
+        ldap_port: 636,
+        ldap_master_bind_dn: "DN=foo,CN=bar",
+        ldap_master_bind_password: blah,
+        ldap_base_dn: "CN=example,DN=org",
+        ldap_unique_id_field: "uid",
+        ldap_search_field: "samaccountname",
+        ldap_admin_dn: "foo=bar,bar=baz",
         secret_token: foobar,
         logrotate_filename: "leihs.ldap",
         test_instance: True
