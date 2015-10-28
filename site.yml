@@ -80,3 +80,23 @@
         }
     - { role: phusion-passenger-vhost,
         server_name: "leihs3.local" }
+# An example with LDAP configuration
+- hosts: leihs4.local
+  roles:
+    - { role: leihs-instance,
+        deploy_to: "/home/leihs/ldap",
+        version: "master",
+        ruby_version: "2.1.5",
+        user: leihs,
+        authorized_for_deployment:
+          ["files/ssh_keys/rca.pub"],
+        mysql_user: leihs,
+        mysql_password: "xZMkdbTSuvPRw",
+        mysql_database: "leihs_ldap",
+        ldap_hostname: "ldap.example.org",
+        secret_token: foobar,
+        logrotate_filename: "leihs.ldap",
+        test_instance: True
+        }
+    - { role: phusion-passenger-vhost,
+        server_name: "leihs4.local" }
