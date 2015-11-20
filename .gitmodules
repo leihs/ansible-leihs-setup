@@ -10,3 +10,9 @@
 [submodule "roles/leihs-instance"]
 	path = roles/leihs-instance
 	url = https://github.com/leihs/ansible-leihs-instance.git
+[submodule "roles/rbenv"]
+	path = roles/rbenv
+	url = https://github.com/DrTom/ansible-role-rbenv.git
+[submodule "roles/rbenv-ruby"]
+	path = roles/rbenv-ruby
+	url = https://github.com/DrTom/ansible-role-rbenv-ruby.git
