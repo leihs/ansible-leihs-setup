@@ -1,2 +1,0 @@
-[leihs_servers]
-leihs.htwchur ansible_ssh_host=10.0.251.138
