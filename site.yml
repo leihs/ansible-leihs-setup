@@ -4,7 +4,7 @@
     - { role: leihs-instance,
         deploy_to: "/home/leihs/test",
         version: "master",
-        ruby_version: "2.1.5",
+        ruby_version: "2.3.0",
         user: leihs,
         authorized_for_deployment:
           ["files/ssh_keys/rca.pub",
@@ -26,7 +26,7 @@
     - { role: leihs-instance,
         deploy_to: "/home/leihs2/test",
         version: "master",
-        ruby_version: "2.1.5",
+        ruby_version: "2.3.0",
         user: leihs2,
         authorized_for_deployment:
           ["files/ssh_keys/rca.pub"],
@@ -47,7 +47,7 @@
     - { role: leihs-instance,
         deploy_to: "/home/leihs/demo",
         version: "master",
-        ruby_version: "2.1.5",
+        ruby_version: "2.3.0",
         user: leihs,
         authorized_for_deployment:
           ["files/ssh_keys/rca.pub"],
@@ -67,7 +67,7 @@
     - { role: leihs-instance,
         deploy_to: "/home/leihs/production",
         version: "master",
-        ruby_version: "2.1.5",
+        ruby_version: "2.3.0",
         user: leihs,
         authorized_for_deployment:
           ["files/ssh_keys/rca.pub"],
@@ -87,7 +87,7 @@
     - { role: leihs-instance,
         deploy_to: "/home/leihs/ldap",
         version: "master",
-        ruby_version: "2.1.5",
+        ruby_version: "2.3.0",
         user: leihs,
         authorized_for_deployment:
           ["files/ssh_keys/rca.pub"],
