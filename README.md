@@ -32,7 +32,7 @@ This should get you started with a test instance:
     - { role: leihs-instance,
         deploy_to: "/home/leihs/test/current",
         version: "master",
-        ruby_version: "2.1.5",
+        ruby_version: "2.3.1",
         user: leihs,
         authorized_for_deployment:
           ["files/ssh_keys/rca.pub",
