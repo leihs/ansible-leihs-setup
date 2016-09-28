@@ -51,21 +51,6 @@ This should get you started with a test instance:
 
 You can of course set some of these variables as host_vars as well, such as secret_token, to keep your site.yml a bit cleaner.
 
-
-## Only deploying an instance, not setting up a server
-
-The leihs-instance role used in this playbook can be used in deploy mode if all you want to do is deploy any version of leihs to an already configured server. Keep in mind that you will have to have run the role connecting as root before, so that the server is in the right state.
-
-The advantage here is that if you just want to deploy a new version of the application, not configure a server, you don't need root. This allows you to e.g. give your leihs developers key-based access to your server as the leihs user, while you give your sysadmins root access, and both use the same playbooks.
-
-Make sure that your SSH public key has been added to `files/ssh_keys` and that ansible-playbook has been run as root once before you attempt this. This is necessary because only root can authorize additional users to connect and deploy.
-
-To use deploy mode, make sure you've set the role's `version` var to the version you want to deploy, then:
-
-    ansible-playbook site.yml -i hosts.production -u leihs --tags=deploy
-
-Substituting the user you've actually configured for that instance in place of `-u leihs`.
-
 ## Variables explained
 
 The variables available in this playbook are explained in the README of the [leihs-instance role](https://github.com/leihs/ansible-leihs-instance) itself. Most of the variables used in this role are simply passed on to that role. Since phusion-passenger-vhost uses many of the same variable names and can get them from host vars, the only one you really have to set manually is the `server_name`. This is what gets set as `ServerName` in the Apache virtual host configuration.
